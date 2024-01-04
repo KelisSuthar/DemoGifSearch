@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   Image,
   Modal,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -15,20 +16,25 @@ import {
   getWidth,
 } from '../../../utils/constants/appConstants';
 
-export const Indicator = ({visible, ...props}) => {
+export const Indicator = ({}) => {
   return (
     <>
       <ActivityIndicator
-        animating={false}
+        animating={true}
         color={colors.red}
-        style={{
-          height: getHeight(100),
-          backgroundColor: 'rgba(255,255,255,0.7)',
-
-          width: getWidth(100),
-          position: 'absolute',
-          shadowColor: colors.red,
-        }}></ActivityIndicator>
+        size={'large'}
+        style={styles.indicator}
+      />
     </>
   );
 };
+export const styles = StyleSheet.create({
+  indicator: {
+    height: getHeight(100),
+    backgroundColor: 'rgba(255,255,255,0.7)',
+
+    width: getWidth(100),
+    position: 'absolute',
+    shadowColor: colors.red,
+  },
+});

@@ -34,7 +34,7 @@ export const images = {};
 export const Labelhints = {
   search: 'Search ...',
 };
-export const strings = {};
+export const strings = {no_internet: 'No Internet connection'};
 export const gifCreds = {api_key: 'YIgFoVU5Y8vghmhTR4LmyhZffICVJHA7'};
 
 export const regex = {

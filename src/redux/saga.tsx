@@ -18,14 +18,17 @@ function* getGifListSaga({payload}: any): Generator<any, any, any> {
     yield put(displayLoading(true));
 
     const response = yield call(fetchGet, {
-      url: `${base_url_qa}?api_key=${gifCreds.api_key}&q=${payload.search}&offset=${payload.offset}`,
+      url: `${base_url_qa}?api_key=${gifCreds.api_key}&q=${payload.search}&offset=${payload.offset}&limit=10`,
     });
+
     yield put(getGifData(response));
     yield put(displayLoading(false));
+    yield put(internetConnectivity(false));
   } catch (error) {
+    yield put(getGifData());
     yield put(getGifDataError(error));
     yield put(displayLoading(false));
-    yield put(internetConnectivity(error == 'No Internet' ? false : true));
+    yield put(internetConnectivity(error == 'No Internet' ? true : false));
   }
 }
 

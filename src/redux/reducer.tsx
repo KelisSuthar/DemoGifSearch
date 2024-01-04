@@ -32,10 +32,7 @@ const Reducer = handleActions(
     ),
     //GIF LIST
     [getGifData().type]: produce(
-      (
-        draft: {getGifData: any; getGifError: string},
-        action: {payload: any},
-      ) => {
+      (draft: {getGifData: any; getGifError: any}, action: {payload: any}) => {
         draft.getGifData = action.payload;
         draft.getGifError = '';
       },

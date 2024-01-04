@@ -25,15 +25,19 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import GifSearchScreen from './src/screens/GifSearch/GifSearchScreen';
+import {useSelector} from 'react-redux';
+import {Indicator} from './src/components/atoms/indicator/Indicator';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const loader = useSelector((state: any) => state.auth.loader);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return <GifSearchScreen />;
+  return (
+    <>
+      <GifSearchScreen />
+      {loader ? <Indicator /> : null}
+    </>
+  );
 }
 
 export default App;

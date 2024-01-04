@@ -27,12 +27,13 @@ export const GifLayout: FC<GifLayoutProps> = ({item, index}) => {
         style={styles.gifImg}
         source={{
           uri: item.images.original.url,
+          // uri: item,
         }}
       />
     </View>
   );
 };
 export const styles = StyleSheet.create({
-  gifImg: {height: getWidth(40), margin: 10},
+  gifImg: {height: getWidth(40), margin: 5},
   gifParent: {flex: 1},
 });

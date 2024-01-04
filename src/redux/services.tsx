@@ -16,6 +16,7 @@ export const fetchGet = async (payload: {url: any}) => {
         method: 'GET',
         headers: headders,
       });
+
       if (response.status === 200) {
         const jsonResponse = await response.json();
         console.log('jsonResponse........success\n', jsonResponse);
@@ -25,8 +26,6 @@ export const fetchGet = async (payload: {url: any}) => {
       console.log('jsonResponse........error\n', jsonResponse);
       const error = jsonResponse.jsonResponse;
       if (jsonResponse?.message == 'Unauthorized user!') {
-        // EventBus.getInstance().fireEvent("LogoutEvent", {
-        // })
       }
       return Promise.reject(jsonResponse?.message);
     } catch (error) {
